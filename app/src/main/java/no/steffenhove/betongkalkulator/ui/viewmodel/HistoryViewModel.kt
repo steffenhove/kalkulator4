@@ -1,6 +1,9 @@
 package no.steffenhove.betongkalkulator.ui.viewmodel
 
-// ... (importer beholdes) ...
+import androidx.lifecycle.*
+import kotlinx.coroutines.launch
+import no.steffenhove.betongkalkulator.ui.model.CalculationEntity
+import no.steffenhove.betongkalkulator.ui.repository.CalculationRepository
 
 class HistoryViewModel(private val repository: CalculationRepository) : ViewModel() {
     val allCalculations: Flow<List<CalculationEntity>> = repository.allCalculations
