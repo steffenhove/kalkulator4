@@ -185,3 +185,34 @@ fun UnitRadioGroup(selectedUnit: Unit, onUnitChange: (Unit) -> Unit) {
         Row {
             Unit.values().forEach { unit ->
                 Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(
+                        selected = selectedUnit == unit,
+                        onClick = { onUnitChange(unit) }
+                    )
+                    Text(unit.displayName)
+                }
+            }
+        } // Denne klammeparentesen manglet
+    }
+}
+
+@Composable
+fun ConcreteTypeRadioGroup(
+    selectedConcrete: ConcreteType,
+    onConcreteChange: (ConcreteType) -> Unit
+) {
+    Column {
+        Text("Betongtype")
+        Row {
+            ConcreteType.values().forEach { concrete ->
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(
+                        selected = selectedConcrete == concrete,
+                        onClick = { onConcreteChange(concrete) }
+                    )
+                    Text(concrete.displayName)
+                }
+            }
+        }
+    }
+}
